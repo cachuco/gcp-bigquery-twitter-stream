@@ -1,3 +1,4 @@
+import config
 import tweepy
 from tweepy.auth import OAuthHandler
 from google.cloud import bigquery
@@ -6,15 +7,15 @@ from google.cloud.language import enums
 from google.cloud.language import types
 
 #CONFIGURATION
-APP_KEY = ""
-APP_SECRET = ""
-OATH_TOKEN = ""
-OATH_TOKEN_SECRET = ""
-BIGQUERY_DATESET = ""
-BIGQUERY_TABLE = ""
-BIGQUERY_QUERY_TABLE = "`gcp-twitter-stream."+BIGQUERY_DATESET+"."+BIGQUERY_TABLE+"`"
-GCP_SERVICE_ACCOUNT_JSON = 'GCP-twitter-stream-f8f02ba293cc.json';
-HASHTAG = ""
+APP_KEY = config.APP_KEY
+APP_SECRET = config.APP_SECRET
+OATH_TOKEN = config.OATH_TOKEN
+OATH_TOKEN_SECRET = config.OATH_TOKEN_SECRET
+BIGQUERY_DATESET = config.BIGQUERY_DATESET
+BIGQUERY_TABLE = config.BIGQUERY_TABLE
+BIGQUERY_QUERY_TABLE = config.BIGQUERY_QUERY_TABLE
+GCP_SERVICE_ACCOUNT_JSON = config.GCP_SERVICE_ACCOUNT_JSON
+HASHTAG = config.HASHTAG
 
 #BIGQUERY CONNECTION
 client = bigquery.Client.from_service_account_json(GCP_SERVICE_ACCOUNT_JSON)
